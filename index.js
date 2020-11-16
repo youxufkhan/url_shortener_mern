@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const app = express()
-const port = 4552
+const port = process.env.PORT || 8080
 
 require('./config/db')
 
@@ -15,6 +15,10 @@ app.use(bodyParser.json({limit: '50mb', extended: false}));
 app.use(cors());
 
 app.get('/', (req, res) => res.send('Hello World!'))
+
+if (process.env.NODE_ENV === 'production'){
+    app.use(expres.static('client/build'))
+}
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
