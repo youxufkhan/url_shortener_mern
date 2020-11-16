@@ -69,7 +69,7 @@ function App() {
               <br />
               <h4>Original Url: </h4>
               <p>
-                <a href={config.BASE_URL + result.shortened_url}>{config.BASE_URL + result.original_url}</a>
+                {result.original_url}
               </p>
             </div>}
 

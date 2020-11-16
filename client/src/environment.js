@@ -14,6 +14,4 @@ if (process.env.NODE_ENV === 'production'){
      config = dev
 }
 
-module.exports = {
-    ...config
-}
+export default config;
