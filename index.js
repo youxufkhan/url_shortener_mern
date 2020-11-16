@@ -14,10 +14,10 @@ app.use(bodyParser.json({limit: '50mb', extended: false}));
 
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello World!'))
+// app.get('/', (req, res) => res.send('Hello World!'))
 
 if (process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'))
+    app.use(express.static('./client/build'))
 }
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
