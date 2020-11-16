@@ -17,7 +17,7 @@ app.use(cors());
 app.get('/', (req, res) => res.send('Hello World!'))
 
 if (process.env.NODE_ENV === 'production'){
-    app.use(expres.static('client/build'))
+    app.use(express.static('client/build'))
 }
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
