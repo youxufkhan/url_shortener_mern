@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import config from './environment'
 
 export default function Navigator(props) {
     const [err, seterr] = useState('')
@@ -7,7 +8,7 @@ export default function Navigator(props) {
     console.log(url)
     useEffect(async ()=>{
     try{
-       let response = await axios.get('http://localhost:4552/link/getUrl?url='+url)
+       let response = await axios.get(config.BASE_API_URL+'link/getUrl?url='+url)
        let data = response.data
        console.log(data)
        window.location.href = data.original_url;

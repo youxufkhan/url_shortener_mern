@@ -5,9 +5,11 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import Navigator from './Navigator';
+import config from './environment'
 
 function App() {
   const [myUrl, setmyUrl] = useState('')
+  const [result, setResult] = useState()
   const onInIt = () => {
 
     // console.log(url)
@@ -19,9 +21,11 @@ function App() {
     e.preventDefault();
     if (validURL(myUrl)) {
       try {
-        let response = await axios.get('http://localhost:4552/link/create?url=' + myUrl)
+        let response = await axios.get(config.BASE_API_URL + 'link/create?url=' + myUrl)
         let data = response.data
         console.log(data)
+        setResult(data)
+        setmyUrl('')
       } catch (e) {
         console.error(e.response)
         if (e.response) {
@@ -56,7 +60,19 @@ function App() {
               <input type="text" name="url" placeholder="Enter URL here...." value={myUrl} onChange={onChange} />
               <input type="submit" value="Submit" />
             </form>
-             
+
+            {result && <div>
+              <h4>Url:</h4>
+              <p>
+                <a href={config.BASE_URL + result.shortened_url}>{config.BASE_URL + result.shortened_url}</a>
+              </p>
+              <br />
+              <h4>Original Url: </h4>
+              <p>
+                <a href={config.BASE_URL + result.shortened_url}>{config.BASE_URL + result.original_url}</a>
+              </p>
+            </div>}
+
 
           </header>
         </div>
