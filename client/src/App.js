@@ -24,7 +24,7 @@ function App() {
       setvalidationError(false)
       console.log(true)
       try {
-        let response = await axios.get(config.BASE_API_URL + 'link/create?url=' + myUrl)
+        let response = await axios.post(config.BASE_API_URL + 'link/create', {url:myUrl})
         let data = response.data
         console.log(data)
         setResult(data)

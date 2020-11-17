@@ -3,7 +3,7 @@ module.exports = (app) => {
 
     //Main Routes
     app.route('/link/create')
-        .get(mainController.createLink);
+        .post(mainController.createLink);
     app.route('/link/getUrl')
         .get(mainController.getLink);
 

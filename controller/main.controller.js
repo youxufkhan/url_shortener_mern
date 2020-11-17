@@ -5,10 +5,10 @@ const Link = mongoose.model('links');
 
 module.exports = {
     createLink: async (req, res) => {
-        if(!req.query.url){
+        if(!req.body.url){
             res.send('url is required')
         }
-        var newLink = new Link({ original_url: req.query.url, shortened_url: randomstring.generate(5) })
+        var newLink = new Link({ original_url: req.body.url, shortened_url: randomstring.generate(5) })
         await newLink.save()
         res.send(newLink)
     },
