@@ -4,8 +4,8 @@ const dev = {
 }
 
 const prod = {
-    BASE_URL:'https://mysterious-meadow-54338.herokuapp.com/',
-    BASE_API_URL: 'https://mysterious-meadow-54338.herokuapp.com/'
+    BASE_URL:'https://lruc.herokuapp.com/',
+    BASE_API_URL: 'https://lruc.herokuapp.com/'
 }
 var config
 if (process.env.NODE_ENV === 'production'){

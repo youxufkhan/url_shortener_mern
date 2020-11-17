@@ -1,8 +1,7 @@
 
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, useParams, useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
 import Navigator from './Navigator';
 import config from './environment'
