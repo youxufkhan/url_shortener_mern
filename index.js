@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -16,7 +17,6 @@ app.use(cors());
 
 // app.get('/', (req, res) => res.send('Hello World!'))
 
-require('./route/routes')(app);
 if (process.env.NODE_ENV === 'production'){
     app.use(express.static('./client/build'))
     app.get('/*', function(req, res) {
@@ -25,4 +25,7 @@ if (process.env.NODE_ENV === 'production'){
 }
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+require('./route/routes')(app);
 
